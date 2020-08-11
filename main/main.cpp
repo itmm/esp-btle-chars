@@ -6,10 +6,6 @@
 #include <cstring>
 #include "esp_gatts_api.h"
 #include "esp_gatt_common_api.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/queue.h"
-#include "freertos/semphr.h"
-#include "freertos/task.h"
 
 constexpr int NUM_CHARS { CONFIG_BLE_CHARS };
 
@@ -207,7 +203,7 @@ extern "C" void app_main() {
 	esp_bt_controller_config_t bt_cfg =
 		BT_CONTROLLER_INIT_CONFIG_DEFAULT();
 	ESP_ERROR_CHECK(esp_bt_controller_init(&bt_cfg));
-	ESP_ERROR_CHECK(esp_bt_controller_enable( ESP_BT_MODE_BLE));
+	ESP_ERROR_CHECK(esp_bt_controller_enable(ESP_BT_MODE_BLE));
 	ESP_ERROR_CHECK(esp_bluedroid_init());
 	ESP_ERROR_CHECK(esp_bluedroid_enable());
 	ESP_ERROR_CHECK(esp_ble_gap_register_callback(
