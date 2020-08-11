@@ -1,0 +1,7 @@
+menu "BLE Characteristics"
+config BLE_CHARS
+   int "number of BLE characteristics to allocate"
+   default 200
+   help
+	  Number of BLE characteristics to allocate
+endmenu
